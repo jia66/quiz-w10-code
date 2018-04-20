@@ -1,0 +1,4 @@
+python ./train.py --output_dir=./ckpt --text=./QuanSongCi.txt --num_steps=32 --batch_size=16 --learning_rate=0.001 --dictionary=./dictionary.json --reverse_dictionary=./reverse_dictionary.json --embedding_file=./embedding.npy
+
+
+python sample.py
