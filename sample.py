@@ -36,7 +36,7 @@ config = tf.ConfigProto()
 config.gpu_options.allow_growth = True
 
 with tf.Session(config=config) as sess:
-    summary_string_writer = tf.summary.FileWriter(FLAGS.output_dir, sess.graph)
+    summary_string_writer = tf.summary.FileWriter(FLAGS.checkpoint_path, sess.graph)
 
     saver = tf.train.Saver(max_to_keep=5)
     sess.run(tf.global_variables_initializer())
@@ -44,7 +44,7 @@ with tf.Session(config=config) as sess:
     logging.debug('Initialized')
 
     try:
-        checkpoint_path = tf.train.latest_checkpoint(FLAGS.output_dir)
+        checkpoint_path = tf.train.latest_checkpoint(FLAGS.checkpoint_path)
         saver.restore(sess, checkpoint_path)
         logging.debug('restore from [{0}]'.format(checkpoint_path))
 
