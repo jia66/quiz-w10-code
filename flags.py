@@ -14,6 +14,8 @@ def parse_args(check=True):
     parser = argparse.ArgumentParser()
     parser.add_argument('--output_dir', type=str, default='./ckpt',
                         help='path to save log and checkpoint.')
+    parser.add_argument('--checkpoint_path', type=str, default='./ckpt',
+                        help='path to save log and checkpoint.')
 
     parser.add_argument('--text', type=str, default='QuanSongCi.txt',
                         help='path to QuanSongCi.txt')
